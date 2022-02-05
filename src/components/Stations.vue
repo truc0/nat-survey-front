@@ -19,6 +19,7 @@
                     <h4>
                         <b>{{ item.name }}</b>
                     </h4>
+                    <span>{{ item.durations.length }} 条记录</span>
                 </a-col>
                 <a-col :xs="24" :md="12">
                     <a-row justify="space-around">
