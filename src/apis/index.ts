@@ -4,7 +4,7 @@ import { API_BASE_URL } from '@/config';
 import { Station } from '@/types/station';
 
 interface IndexResponse {
-    data: [Station];
+    data: Station[];
     total: number;
 }
 

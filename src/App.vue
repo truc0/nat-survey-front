@@ -1,11 +1,25 @@
 <script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import DataBox from './components/DataBox.vue'
+import NoticeBoard from './components/NoticeBoard.vue';
+import Stations from '@/components/Stations.vue'
 </script>
 
 <template>
-<DataBox />
+<a-layout id="app-layout">
+  <a-layout-header id="app-header">
+    <h1>核酸报告用时分享</h1>
+  </a-layout-header>
+
+  <a-layout-content>
+    <NoticeBoard />
+    <Stations />
+  </a-layout-content>
+
+  <a-layout-footer id="app-footer">
+    Made by <a href="https://dongyueweb.com">DongYue Web Studio</a> |
+    <a href="https://github.com/dyweb">Github</a> |
+    <a href="https://github.com/truc0/nat-survey-front">Source</a>
+  </a-layout-footer>
+</a-layout>
 </template>
 
 <style>
@@ -15,6 +29,22 @@ import DataBox from './components/DataBox.vue'
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  background: #f0f2f5;
+}
+
+#app-layout {
+  min-height: 100vh;
+  width: 90%;
+  margin: 0 auto;
+
+  background: inherit;
+}
+
+#app-header.ant-layout-header {
+  background: inherit;
+}
+
+#app-footer {
+  text-align: center;
 }
 </style>
