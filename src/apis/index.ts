@@ -6,6 +6,7 @@ import { Station } from '@/types/station';
 interface IndexResponse {
     data: Station[];
     total: number;
+    last_update: string;
 }
 
 export function fetchStations(): Promise<IndexResponse> {
