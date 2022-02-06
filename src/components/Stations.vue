@@ -24,13 +24,16 @@
                 <a-col :xs="24" :md="12">
                     <a-row justify="space-around">
                         <a-col>
-                            平均用时: <span>{{ get_average(item.durations) }}</span>h
+                            平均用时: 
+                            <span>{{ get_average(item.durations).toFixed(2) }}</span>h
                         </a-col>
                         <a-col>
-                            最短用时: <span>{{ get_min(item.durations) }}</span>h
+                            最短用时: 
+                            <span>{{ get_min(item.durations).toFixed(2) }}</span>h
                         </a-col>
                         <a-col>
-                            最长用时: <span>{{ get_max(item.durations) }}</span>h
+                            最长用时: 
+                            <span>{{ get_max(item.durations).toFixed(2) }}</span>h
                         </a-col>
                     </a-row>
                 </a-col>
@@ -57,6 +60,10 @@ fetchStations().then(response_data => {
     stations.value = response_data.data
     loading.value = false
 })
+
+/**
+ * functions
+ */
 
 function get_average(durations: number[]) {
     if (durations.length === 0) {
