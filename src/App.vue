@@ -6,7 +6,7 @@ import Stations from '@/components/Stations.vue'
 <template>
 <a-layout id="app-layout">
   <a-layout-header id="app-header">
-    <h1>核酸报告用时分享</h1>
+    <h1><b>核酸报告用时分享</b></h1>
   </a-layout-header>
 
   <a-layout-content>
