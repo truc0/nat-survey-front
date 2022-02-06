@@ -5,15 +5,19 @@
 declare module 'vue' {
   export interface GlobalComponents {
     AAlert: typeof import('ant-design-vue/es')['Alert']
+    ACard: typeof import('ant-design-vue/es')['Card']
     ACol: typeof import('ant-design-vue/es')['Col']
     ALayout: typeof import('ant-design-vue/es')['Layout']
     ALayoutContent: typeof import('ant-design-vue/es')['LayoutContent']
     ALayoutFooter: typeof import('ant-design-vue/es')['LayoutFooter']
     ALayoutHeader: typeof import('ant-design-vue/es')['LayoutHeader']
     AList: typeof import('ant-design-vue/es')['List']
-    AListItem: typeof import('ant-design-vue/es')['ListItem']
     ARow: typeof import('ant-design-vue/es')['Row']
+    ATypographyText: typeof import('ant-design-vue/es')['TypographyText']
+    ATypographyTitle: typeof import('ant-design-vue/es')['TypographyTitle']
     NoticeBoard: typeof import('./src/components/NoticeBoard.vue')['default']
+    Station: typeof import('./src/components/Station.vue')['default']
+    StationBasicInfo: typeof import('./src/components/StationBasicInfo.vue')['default']
     Stations: typeof import('./src/components/Stations.vue')['default']
   }
 }

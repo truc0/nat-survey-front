@@ -13,32 +13,10 @@
         </a-row>
     </template>
     <template #renderItem="{ item }">
-        <a-list-item>
-            <a-row style="width: 100%">
-                <a-col :xs="24" :md="12">
-                    <h4>
-                        <b>{{ item.name }}</b>
-                    </h4>
-                    <span>{{ item.durations.length }} 条记录</span>
-                </a-col>
-                <a-col :xs="24" :md="12">
-                    <a-row justify="space-around">
-                        <a-col>
-                            平均用时: 
-                            <span>{{ get_average(item.durations).toFixed(2) }}</span>h
-                        </a-col>
-                        <a-col>
-                            最短用时: 
-                            <span>{{ get_min(item.durations).toFixed(2) }}</span>h
-                        </a-col>
-                        <a-col>
-                            最长用时: 
-                            <span>{{ get_max(item.durations).toFixed(2) }}</span>h
-                        </a-col>
-                    </a-row>
-                </a-col>
-            </a-row>
-        </a-list-item>
+        <Station 
+            :name="item.name"
+            :durations="item.durations"
+        />
     </template>
   </a-list>
 </template>
@@ -51,6 +29,7 @@ import { ref, computed } from 'vue'
 import { fetchStations } from '@/apis'
 /* types */
 import { Station as StationType } from '@/types/station'
+import Station from './Station.vue';
 
 const loading = ref(true)
 const lastUpdateStr = ref('')
@@ -69,35 +48,4 @@ const lastUpdate = computed(() => {
     const date = new Date(lastUpdateStr.value)
     return date.toLocaleString('zh-CN')
 })
-
-/**
- * functions
- */
-
-function get_average(durations: number[]) {
-    if (durations.length === 0) {
-        return 0
-    }
-    let sum = 0
-    durations.map(value => sum += value)
-    return sum / durations.length
-}
-
-function get_min(durations: number[]) {
-    if (durations.length === 0) {
-        return 0
-    }
-    let min = durations[0]
-    durations.map(value => min = Math.min(min, value))
-    return min
-}
-
-function get_max(durations: number[]) {
-    if (durations.length === 0) {
-        return 0
-    }
-    let max = durations[0]
-    durations.map(value => max = Math.max(max, value))
-    return max
-}
 </script>
